@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D _rigidbody;
-
+    public bool isInteracting = false;
 
     [SerializeField] float _speed = 5f;
     [SerializeField] PlayerAnimation playerAnimation;
@@ -31,6 +31,14 @@ public class PlayerController : MonoBehaviour
         
         playerAnimation.Ani_Run(_rigidbody.velocity);
 
+    }
+
+    private void OnInteract(InputValue input)
+    {
+        if (input.isPressed)
+        {
+            isInteracting = true;
+        }
     }
 
     // Start is called before the first frame update

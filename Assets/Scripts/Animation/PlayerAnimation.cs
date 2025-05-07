@@ -8,7 +8,7 @@ public class PlayerAnimation : MonoBehaviour
 
     [SerializeField] PlayerController playerController;
     [SerializeField] SpriteRenderer spriteRenderer;
-    [SerializeField] ParticleSystem particleSystem;
+    
 
     private static readonly int Run = Animator.StringToHash("IsRun");
 
@@ -22,12 +22,12 @@ public class PlayerAnimation : MonoBehaviour
         if (playerVector.magnitude > 0.5f)
         {
             animator.SetBool(Run, true);
-            particleSystem.Play();
+            
         }
         else
         {
             animator.SetBool(Run, false);
-            particleSystem.Stop();
+            
         }
 
         if(playerVector.x>0)
