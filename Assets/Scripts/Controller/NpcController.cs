@@ -11,6 +11,7 @@ public class NpcController : MonoBehaviour
     private void Start()
     {
         boxCollider = GetComponent<BoxCollider2D>();
+        Time.timeScale = 1f;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +35,7 @@ public class NpcController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerController>().isInteracting)
         {
-            Time.timeScale = 0f;
+            
             GameManager.Instance.LoadScene("FlappyBird");
         }
     }

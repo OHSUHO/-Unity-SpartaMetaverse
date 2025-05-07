@@ -16,7 +16,8 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         gameManager = this;
-        bestScore = PlayerPrefs.GetInt("BestScore",0);
+        bestScore = PlayerPrefs.GetInt("BestScore", 0);
+        PlayerPrefs.Save();
 
     }
     private void Start()
@@ -33,11 +34,12 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         uiManager.SetRestart();
-        Time.timeScale = 0f;
-        if (currentScore > bestScore)
+        
+        if (currentScore >= bestScore)
         {
             bestScore = currentScore;
             PlayerPrefs.SetInt("BestScore", bestScore);
+            Debug.Log(bestScore);
         }
     }
 

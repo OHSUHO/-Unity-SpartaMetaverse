@@ -9,6 +9,7 @@ public class StartUI : BaseUI
     [SerializeField] Button ExitBtn;
     private void Start()
     {
+        Time.timeScale = 0f;
         StartBtn.onClick.AddListener(StartBtnClick);
         ExitBtn.onClick.AddListener(ExitBtnClick);
     }
